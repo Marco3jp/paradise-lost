@@ -1,8 +1,8 @@
 import {enemies} from "~/src/model/type";
-import {Effect} from "~/src/model/effect";
-import {BattleContext} from "~/src/model/battleContext";
+import {effect} from "~/src/model/effect";
+import {battleContext} from "~/src/model/battleContext";
 
-export interface Skill {
+export interface skill {
   name: string,
   description: string,
   priority: number,
@@ -11,8 +11,8 @@ export interface Skill {
 
   effects: Array<{
     target: enemies | "player" | "field",
-    effect: Effect
+    effect: effect
   }>,
 
-  require(bc: BattleContext): boolean,
+  require(bc: battleContext): boolean,
 }

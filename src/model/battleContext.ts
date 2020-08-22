@@ -4,7 +4,7 @@ interface bossStatus {
   isOverDrive: boolean
 }
 
-export interface BattleContext {
+export interface battleContext {
   boss: {
     Lucilius: bossStatus,
     BlackWing: bossStatus,
@@ -12,6 +12,6 @@ export interface BattleContext {
   },
 }
 
-export function ct(bs: bossStatus) {
+export function ct(bs: bossStatus): boolean {
   return bs.isCTMax
 }

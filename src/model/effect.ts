@@ -1,4 +1,4 @@
-export interface Effect {
+export interface effect {
   name: string,
   type: "buff" | "debuff" | "other",
   description?: string,

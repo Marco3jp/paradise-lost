@@ -1,5 +1,5 @@
-import {Skill} from "~/src/model/skill";
-import {Attack} from "~/src/model/attack";
+import {skill} from "~/src/model/skill";
+import {attack} from "~/src/model/attack";
 
 export type enemies = "Lucilius" | "Black Wings";
-export type Action = Skill | Attack;
+export type action = skill | attack;

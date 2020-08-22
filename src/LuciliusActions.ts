@@ -1,13 +1,13 @@
-import {Action} from "~/src/model/type";
-import {BattleContext, ct} from "~/src/model/battleContext";
+import {action} from "~/src/model/type";
+import {battleContext, ct} from "~/src/model/battleContext";
 
-export const LuciliusActions: Array<Action> = [
+export const LuciliusActions: Array<action> = [
   {
     name: 'ポースポロス',
     description: "(ランダム属性)単体特大ダメージ＋強化効果を全て消去\n" +
       "(編成画面で最も攻撃力が高いキャラを狙う)",
     priority: 10,
-    require(bc: BattleContext): boolean {
+    require(bc: battleContext): boolean {
       return ct(bc.boss.Lucilius) && bc.boss.BlackWing.health > 50 && !bc.boss.Lucilius.isOverDrive
     }
   },
@@ -16,7 +16,7 @@ export const LuciliusActions: Array<Action> = [
     description: "(ランダム属性)3000ダメージ多段+2万ダメージ×2回\n" +
       "全体に恐怖、衰弱、裂傷(1～3T)を付与",
     priority: 10,
-    require(bc: BattleContext): boolean {
+    require(bc: battleContext): boolean {
       return ct(bc.boss.Lucilius) && bc.boss.BlackWing.health > 50 && bc.boss.Lucilius.isOverDrive
     }
   },
@@ -30,7 +30,7 @@ export const LuciliusActions: Array<Action> = [
       "赫刃IV以上…全体に無属性10000ダメージ\n" +
       "赫刃V…全体に最大HPダウン(累積)",
     priority: 10,
-    require(bc: BattleContext): boolean {
+    require(bc: battleContext): boolean {
       return ct(bc.boss.Lucilius) && bc.boss.BlackWing.health <= 50 && bc.boss.BlackWing.health > 0
     }
   },
@@ -39,7 +39,7 @@ export const LuciliusActions: Array<Action> = [
     description: "(ランダム属性)単体特大ダメージ＋強化効果を全て消去\n" +
       "(現在HPが最も低いキャラを狙う)",
     priority: 10,
-    require(bc: BattleContext): boolean {
+    require(bc: battleContext): boolean {
       return ct(bc.boss.Lucilius) && bc.boss.BlackWing.health === 0 && !bc.boss.Lucilius.isOverDrive
     }
   },
@@ -53,7 +53,7 @@ export const LuciliusActions: Array<Action> = [
       "試練11未達成…全体の強化アビリティ2ターン延長\n" +
       "(それぞれ赤、緑、青、黄色の枠のアビリティ)",
     priority: 10,
-    require(bc: BattleContext): boolean {
+    require(bc: battleContext): boolean {
       return ct(bc.boss.Lucilius) && bc.boss.BlackWing.health === 0 && bc.boss.Lucilius.isOverDrive
     }
   },
@@ -63,12 +63,12 @@ export const LuciliusActions: Array<Action> = [
       "「全属性カット」効果貫通\n" +
       "倒したキャラに「復活不可」付与",
     priority: 100, // MAX
-    require(bc: BattleContext): boolean {
+    require(bc: battleContext): boolean {
       return ct(bc.boss.Lucilius) && ct(bc.boss.BlackWing)
     }
   },
   {
-    description: "強制敗北", name: "ジ・エンド", priority: 99, require(bc: BattleContext): boolean {
+    description: "強制敗北", name: "ジ・エンド", priority: 99, require(bc: battleContext): boolean {
       return bc.boss.countdown === 0;
     }
   },
@@ -99,7 +99,7 @@ export const LuciliusActions: Array<Action> = [
     priority: 30,
     isOnce: true,
     isAuto: true,
-    require(bc: BattleContext): boolean {
+    require(bc: battleContext): boolean {
       return bc.boss.BlackWing.health <= 50;
     }
   },
@@ -109,7 +109,7 @@ export const LuciliusActions: Array<Action> = [
       "(編成画面で最も攻撃力が高いキャラを狙う)",
     priority: 30,
     isOnce: true,
-    require(bc: BattleContext): boolean {
+    require(bc: battleContext): boolean {
       return bc.boss.Lucilius.health > 90 && bc.boss.Lucilius.health <= 95
     }
   },
@@ -120,7 +120,7 @@ export const LuciliusActions: Array<Action> = [
       "この攻撃で戦闘不能キャラが出た場合：全体に無属性30000ダメージ",
     priority: 30,
     isOnce: true,
-    require(bc: BattleContext): boolean {
+    require(bc: battleContext): boolean {
       return bc.boss.Lucilius.health > 75 && bc.boss.Lucilius.health <= 85
     }
   },
@@ -150,7 +150,7 @@ export const LuciliusActions: Array<Action> = [
         type: "buff"
       }
     }],
-    require(bc: BattleContext): boolean {
+    require(bc: battleContext): boolean {
       return bc.boss.Lucilius.health <= 75 && bc.boss.BlackWing.health !== 0
     }
   },
@@ -159,7 +159,7 @@ export const LuciliusActions: Array<Action> = [
     description: "",
     priority: 30,
     isOnce: true,
-    require(bc: BattleContext): boolean {
+    require(bc: battleContext): boolean {
       return bc.boss.Lucilius.health <= 70
     }
   },
@@ -169,7 +169,7 @@ export const LuciliusActions: Array<Action> = [
       "この攻撃で戦闘不能キャラが出た場合：全体に無属性30000ダメージ",
     priority: 30,
     isOnce: true,
-    require(bc: BattleContext): boolean {
+    require(bc: battleContext): boolean {
       return bc.boss.Lucilius.health <= 60 && bc.boss.Lucilius.health > 55
     }
   },
@@ -178,7 +178,7 @@ export const LuciliusActions: Array<Action> = [
     description: "",
     priority: 30,
     isOnce: true,
-    require(bc: BattleContext): boolean {
+    require(bc: battleContext): boolean {
       return bc.boss.Lucilius.health <= 55
     }
   },
@@ -189,7 +189,7 @@ export const LuciliusActions: Array<Action> = [
     priority: 30,
     isOnce: true,
     isAuto: true,
-    require(bc: BattleContext): boolean {
+    require(bc: battleContext): boolean {
       return bc.boss.Lucilius.health <= 25
     }
   },
@@ -217,7 +217,7 @@ export const LuciliusActions: Array<Action> = [
           "※敵のチャージターンも2～3ずつ増える", name: "天の水門", type: "other",
       },
     }],
-    require(bc: BattleContext): boolean {
+    require(bc: battleContext): boolean {
       return bc.boss.Lucilius.health <= 25
     }
   },
@@ -233,7 +233,7 @@ export const LuciliusActions: Array<Action> = [
       "※15%以下で特殊行動無し",
     priority: 30,
     isOnce: true,
-    require(bc: BattleContext): boolean {
+    require(bc: battleContext): boolean {
       return bc.boss.Lucilius.health <= 20 && bc.boss.Lucilius.health > 15
     }
   },
@@ -249,7 +249,7 @@ export const LuciliusActions: Array<Action> = [
       "※10%以下で特殊行動無し",
     priority: 30,
     isOnce: true,
-    require(bc: BattleContext): boolean {
+    require(bc: battleContext): boolean {
       return bc.boss.Lucilius.health <= 15 && bc.boss.Lucilius.health > 10
     }
   },
@@ -260,7 +260,7 @@ export const LuciliusActions: Array<Action> = [
     priority: 30,
     isOnce: true,
     isAuto: true,
-    require(bc: BattleContext): boolean {
+    require(bc: battleContext): boolean {
       return bc.boss.Lucilius.health <= 10
     }
   },
@@ -270,7 +270,7 @@ export const LuciliusActions: Array<Action> = [
       "(※ダメージカット可能)",
     priority: 30,
     isOnce: true,
-    require(bc: BattleContext): boolean {
+    require(bc: battleContext): boolean {
       return bc.boss.Lucilius.health <= 10
     }
   },
@@ -280,17 +280,17 @@ export const LuciliusActions: Array<Action> = [
       "(※ダメージカット可能)",
     priority: 30,
     isOnce: true,
-    require(bc: BattleContext): boolean {
+    require(bc: battleContext): boolean {
       return bc.boss.Lucilius.health <= 3
     }
   },
   {
-    description: "全体攻撃(ランダム属性)", name: "通常攻撃", priority: 0, require(bc: BattleContext): boolean {
+    description: "全体攻撃(ランダム属性)", name: "通常攻撃", priority: 0, require(bc: battleContext): boolean {
       return !ct(bc.boss.Lucilius) && bc.boss.Lucilius.health > 50;
     }
   },
   {
-    description: "多段攻撃", name: "通常攻撃", priority: 0, require(bc: BattleContext): boolean {
+    description: "多段攻撃", name: "通常攻撃", priority: 0, require(bc: battleContext): boolean {
       return !ct(bc.boss.Lucilius) && bc.boss.Lucilius.health <= 50;
     }
   }

@@ -1,8 +1,8 @@
-import {BattleContext} from "~/src/model/battleContext";
+import {battleContext} from "~/src/model/battleContext";
 
-export interface Attack {
+export interface attack {
   name: string,
   description: string,
   priority: number,
-  require(bc: BattleContext): boolean,
+  require(bc: battleContext): boolean,
 }
