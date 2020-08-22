@@ -9,7 +9,7 @@ export function checkAction(bs: bossStatus, context: battleContext): action | un
 
       if (isSkill(bs.actions[i]) && (bs.actions[i] as skill).isAuto) continue;
 
-      if (isSkill(bs.actions[i]) && !(bs.actions[i] as skill).isAuto && (bs.actions[i] as skill).isOnce) {
+      if (isSkill(bs.actions[i]) && (bs.actions[i] as skill).isOnce) {
         if (bs.usedSkill.includes(i)) {
           continue;
         } else {
