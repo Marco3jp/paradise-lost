@@ -3,6 +3,24 @@ import {battleContext, ct} from "~/src/model/battleContext";
 
 export const LuciliusActions: Array<action> = [
   {
+    name: 'パラダイス・ロスト',
+    description: "無属性全体ダメージ(3万)\n",
+    priority: 98,
+    effects: [{
+      target: "player",
+      effect: {
+        type: "debuff",
+        clearable: false,
+        effectTurn: 3,
+        name: "召喚不可"
+      }
+    }],
+    isOnce: true,
+    require(): boolean {
+      return true
+    }
+  },
+  {
     name: 'ポースポロス',
     description: "(ランダム属性)単体特大ダメージ＋強化効果を全て消去\n" +
       "(編成画面で最も攻撃力が高いキャラを狙う)",
@@ -70,24 +88,6 @@ export const LuciliusActions: Array<action> = [
   {
     description: "強制敗北", name: "ジ・エンド", priority: 99, require(bc: battleContext): boolean {
       return bc.boss.countdown === 0;
-    }
-  },
-  {
-    name: 'パラダイス・ロスト',
-    description: "無属性全体ダメージ(3万)\n",
-    priority: 98,
-    effects: [{
-      target: "player",
-      effect: {
-        type: "debuff",
-        clearable: false,
-        effectTurn: 3,
-        name: "召喚不可"
-      }
-    }],
-    isOnce: true,
-    require(): boolean {
-      return true
     }
   },
   {
