@@ -286,12 +286,12 @@ export const LuciliusActions: Array<action> = [
   },
   {
     description: "全体攻撃(ランダム属性)", name: "通常攻撃", priority: 0, require(bc: battleContext): boolean {
-      return !ct(bc.boss.Lucilius) && bc.boss.Lucilius.health > 50;
+      return !ct(bc.boss.Lucilius) && bc.boss.BlackWing.health > 50;
     }
   },
   {
     description: "多段攻撃", name: "通常攻撃", priority: 0, require(bc: battleContext): boolean {
-      return !ct(bc.boss.Lucilius) && bc.boss.Lucilius.health <= 50;
+      return !ct(bc.boss.Lucilius) && bc.boss.BlackWing.health <= 50;
     }
   }
 ]
