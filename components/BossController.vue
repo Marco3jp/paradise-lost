@@ -26,6 +26,9 @@
     & > div {
       text-align: center;
       width: calc(100% / 3);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
     }
 
     .targeting {
