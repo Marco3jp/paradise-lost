@@ -21,6 +21,11 @@ export function checkAction(bs: bossStatus, context: battleContext): action | un
   return expectedAction;
 }
 
-export function recordAction(action: action, bs: bossStatus) {
-  bs.usedSkill.push(action.id);
+export function recordAction(bs: bossStatus, action?: action | number) {
+  if (typeof action === "undefined") return
+  if (typeof action === "number") {
+    bs.usedSkill.push(action);
+  } else {
+    bs.usedSkill.push(action.id);
+  }
 }
