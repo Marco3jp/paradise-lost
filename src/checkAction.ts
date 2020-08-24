@@ -4,6 +4,8 @@ import {action} from "~/src/model/type";
 
 
 export function checkAction(bs: bossStatus, context: battleContext): action | undefined {
+  let expectedAction:action | undefined = undefined;
+
   for (let i = 0; i < bs.actions.length; i++) {
     if (bs.actions[i].require(context)) {
 
@@ -16,9 +18,12 @@ export function checkAction(bs: bossStatus, context: battleContext): action | un
           bs.usedSkill.push(i);
         }
       }
-      return bs.actions[i];
+
+      if (typeof expectedAction === "undefined" || (expectedAction as action).priority < bs.actions[i].priority) {
+        expectedAction = bs.actions[i];
+      }
     }
   }
 
-  return undefined; // 理論上undefinedに入ることはないはずだが……
+  return expectedAction;
 }
