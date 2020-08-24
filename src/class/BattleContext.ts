@@ -7,8 +7,8 @@ export class BattleContext implements battleContext {
 
   constructor() {
     this.boss = {
-      Lucilius: new BossStatus(LuciliusActions),
-      BlackWing: new BossStatus([]),
+      Lucilius: new BossStatus("Lucilius", LuciliusActions),
+      BlackWing: new BossStatus("BlackWing", []),
       countdown: 6
     }
   }

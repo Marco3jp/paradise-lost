@@ -2,6 +2,7 @@ import {action} from "~/src/model/type";
 import {BossStatus} from "~/src/class/BossStatus";
 
 export interface bossStatus {
+  name: string
   health: number // percent
   isCTMax: boolean
   isOverDrive: boolean
