@@ -20,3 +20,7 @@ export function checkAction(bs: bossStatus, context: battleContext): action | un
 
   return expectedAction;
 }
+
+export function recordAction(action: action, bs: bossStatus) {
+  bs.usedSkill.push(action.id);
+}
