@@ -8,7 +8,7 @@
       <boss-action :action="expectedAction"></boss-action>
     </div>
     <div class="status-controller">
-      <boss-status-controller @toggle-od="onToggleOD" @toggle-ct="onToggleCT" @increase="onIncrease"
+      <boss-status-controller :boss="currentBoss" @toggle-od="onToggleOD" @toggle-ct="onToggleCT" @increase="onIncrease"
                               @decrease="onDecrease"></boss-status-controller>
     </div>
     <div class="controller">

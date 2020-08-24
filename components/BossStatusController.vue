@@ -1,8 +1,8 @@
 <template>
   <div class="flex flex-column justify-between boss-status-controller">
     <div class="flex justify-around od-ct-controller">
-      <div @click="$emit('toggle-od')">OD</div>
-      <div @click="$emit('toggle-ct')">CT</div>
+      <div @click="$emit('toggle-od')" :class="{od: boss.isOverDrive}">OD</div>
+      <div @click="$emit('toggle-ct')" :class="{ct: boss.isCTMax}">CT</div>
     </div>
     <div class="flex justify-between health-controller">
       <div @click="$emit('decrease', 5)">
@@ -35,7 +35,8 @@
   import Vue from 'vue';
 
   export default Vue.extend({
-    name: "BossStatusController"
+    name: "BossStatusController",
+    props: ['boss']
   })
 </script>
 
@@ -45,6 +46,10 @@
 
     .od-ct-controller {
       height: 40%;
+
+      .od, .ct {
+        color: red;
+      }
     }
 
     .health-controller {
