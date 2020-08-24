@@ -4,7 +4,7 @@ import {battleContext, ct} from "~/src/model/battleContext";
 export const LuciliusActions: Array<action> = [
   {
     name: 'パラダイス・ロスト',
-    description: "無属性全体ダメージ(3万)\n",
+    description: "無属性全体ダメージ(3万)",
     priority: 98,
     effects: [{
       target: "player",
@@ -195,7 +195,7 @@ export const LuciliusActions: Array<action> = [
   },
   {
     name: "ゴフェル・アーク",
-    description: "　編成内に同じ種族のキャラがいる場合、\n" +
+    description: "編成内に同じ種族のキャラがいる場合、\n" +
       "種族の被る配置が後ろのキャラに最大HPの100%の無属性ダメージ\n" +
       "※種族被りがない場合はダメージなし\n",
     priority: 50,
