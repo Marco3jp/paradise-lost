@@ -25,7 +25,7 @@ export function recordAction(bs: bossStatus, action?: action | number) {
   if (typeof action === "undefined") return
   if (typeof action === "number") {
     bs.usedSkill.push(action);
-  } else {
+  } else if (isSkill(action) && (action as skill).isOnce) {
     bs.usedSkill.push(action.id);
   }
 }
