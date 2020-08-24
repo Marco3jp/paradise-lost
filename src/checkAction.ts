@@ -4,22 +4,15 @@ import {action} from "~/src/model/type";
 
 
 export function checkAction(bs: bossStatus, context: battleContext): action | undefined {
-  let expectedAction:action | undefined = undefined;
+  let expectedAction: action | undefined = undefined;
 
   for (let i = 0; i < bs.actions.length; i++) {
     if (bs.actions[i].require(context)) {
 
-      if (isSkill(bs.actions[i]) && (bs.actions[i] as skill).isAuto) continue;
+      // スキルのとき、自動発動系もしくは一度きりのスキルで既に発動している場合に除外する
+      if (isSkill(bs.actions[i]) && ((bs.actions[i] as skill).isAuto || ((bs.actions[i] as skill).isOnce && bs.usedSkill.includes(bs.actions[i].id)))) continue;
 
-      if (isSkill(bs.actions[i]) && (bs.actions[i] as skill).isOnce) {
-        if (bs.usedSkill.includes(i)) {
-          continue;
-        } else {
-          bs.usedSkill.push(i);
-        }
-      }
-
-      if (typeof expectedAction === "undefined" || (expectedAction as action).priority < bs.actions[i].priority) {
+      if (typeof expectedAction === "undefined" || expectedAction.priority < bs.actions[i].priority) {
         expectedAction = bs.actions[i];
       }
     }
