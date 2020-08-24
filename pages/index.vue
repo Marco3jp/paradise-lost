@@ -12,7 +12,8 @@
                               @decrease="onDecrease"></boss-status-controller>
     </div>
     <div class="controller">
-      <boss-controller @target-boss="onTargetBoss" @checked-action="onCheckedAction"></boss-controller>
+      <boss-controller :boss="currentBoss" :is-once="isOnce" @target-boss="onTargetBoss"
+                       @checked-action="onCheckedAction"></boss-controller>
     </div>
 
     <div class="checked-modal" v-show="checkActionSafety">
@@ -34,7 +35,8 @@
   import BossController from "~/components/BossController.vue";
   import {checkAction, recordAction} from "~/src/checkAction";
   import {action} from "~/src/model/type";
-  import {bossStatus} from "~/src/model/battleContext";
+  import {bossStatus, isSkill} from "~/src/model/battleContext";
+  import {skill} from "~/src/model/skill";
 
   export default Vue.extend({
     components: {BossStatus, BossAction, BossStatusController, BossController},
@@ -82,6 +84,9 @@
         } else {
           return this.battleContext.boss.BlackWing;
         }
+      },
+      isOnce: function (): boolean {
+        return typeof this.expectedAction !== "undefined" && isSkill(this.expectedAction) && (this.expectedAction as skill).isOnce
       }
     }
   })
