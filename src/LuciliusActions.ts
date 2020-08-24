@@ -3,6 +3,7 @@ import {battleContext, ct} from "~/src/model/battleContext";
 
 export const LuciliusActions: Array<action> = [
   {
+    id: 0,
     name: 'パラダイス・ロスト',
     description: "無属性全体ダメージ(3万)",
     priority: 98,
@@ -21,6 +22,7 @@ export const LuciliusActions: Array<action> = [
     }
   },
   {
+    id: 1,
     name: 'ポースポロス',
     description: "(ランダム属性)単体特大ダメージ＋強化効果を全て消去\n" +
       "(編成画面で最も攻撃力が高いキャラを狙う)",
@@ -30,6 +32,7 @@ export const LuciliusActions: Array<action> = [
     }
   },
   {
+    id: 2,
     name: "イブリース",
     description: "(ランダム属性)3000ダメージ多段+2万ダメージ×2回\n" +
       "全体に恐怖、衰弱、裂傷(1～3T)を付与",
@@ -39,6 +42,7 @@ export const LuciliusActions: Array<action> = [
     }
   },
   {
+    id: 3,
     name: "アキシオン・アポカリプス",
     description: "(ランダム属性)3回ダメージ\n" +
       "モードゲージ上昇\n" +
@@ -53,6 +57,7 @@ export const LuciliusActions: Array<action> = [
     }
   },
   {
+    id: 4,
     name: 'ポースポロス',
     description: "(ランダム属性)単体特大ダメージ＋強化効果を全て消去\n" +
       "(現在HPが最も低いキャラを狙う)",
@@ -62,6 +67,7 @@ export const LuciliusActions: Array<action> = [
     }
   },
   {
+    id: 5,
     name: 'オービタルブラック',
     description: "(ランダム属性)3回ダメージ\n" +
       "全体にハレーション(消去不可、5T)を付与\n" +
@@ -76,6 +82,7 @@ export const LuciliusActions: Array<action> = [
     }
   },
   {
+    id: 6,
     name: 'パラダイス・ロスト',
     description: "(ランダム属性)全体ダメージ(7～8万程度)\n" +
       "「全属性カット」効果貫通\n" +
@@ -86,11 +93,13 @@ export const LuciliusActions: Array<action> = [
     }
   },
   {
+    id: 7,
     description: "強制敗北", name: "ジ・エンド", priority: 99, require(bc: battleContext): boolean {
       return bc.boss.countdown === 0;
     }
   },
   {
+    id: 8,
     name: "真の力解放",
     description: "モードゲージリセット\n" +
       "ルシファー&黒き羽の弱体効果リセット\n" +
@@ -104,6 +113,7 @@ export const LuciliusActions: Array<action> = [
     }
   },
   {
+    id: 9,
     name: "ポースポロス",
     description: "(ランダム属性)単体特大ダメージ＋強化効果を全て消去\n" +
       "(編成画面で最も攻撃力が高いキャラを狙う)",
@@ -114,6 +124,7 @@ export const LuciliusActions: Array<action> = [
     }
   },
   {
+    id: 10,
     name: "アキシオン",
     description: "(ランダム属性)3回ダメージ\n" +
       "(3回とも現在HPが最も低いキャラを狙う)\n" +
@@ -125,6 +136,7 @@ export const LuciliusActions: Array<action> = [
     }
   },
   {
+    id: 11,
     name: "無神論",
     description: "(※1人目のみ発動)\n" +
       "(ルシファー行動後に黒き羽の特殊行動)\n" +
@@ -155,6 +167,7 @@ export const LuciliusActions: Array<action> = [
     }
   },
   {
+    id: 12,
     name: "チャージターンMAX",
     description: "",
     priority: 30,
@@ -164,6 +177,7 @@ export const LuciliusActions: Array<action> = [
     }
   },
   {
+    id: 13,
     name: "アキシオン",
     description: "(ランダム属性)全体攻撃×3回ダメージ(かばう不可)\n" +
       "この攻撃で戦闘不能キャラが出た場合：全体に無属性30000ダメージ",
@@ -174,6 +188,7 @@ export const LuciliusActions: Array<action> = [
     }
   },
   {
+    id: 14,
     name: "チャージターンMAX",
     description: "",
     priority: 30,
@@ -183,6 +198,7 @@ export const LuciliusActions: Array<action> = [
     }
   },
   {
+    id: 15,
     name: "強化",
     description: "ルシファーの弱体効果リセット\n" +
       "ルシファーの攻撃力約1.3倍",
@@ -194,6 +210,7 @@ export const LuciliusActions: Array<action> = [
     }
   },
   {
+    id: 16,
     name: "ゴフェル・アーク",
     description: "編成内に同じ種族のキャラがいる場合、\n" +
       "種族の被る配置が後ろのキャラに最大HPの100%の無属性ダメージ\n" +
@@ -222,6 +239,7 @@ export const LuciliusActions: Array<action> = [
     }
   },
   {
+    id: 17,
     name: "アキシオン・アポカリプス",
     description: "(ランダム属性)3回ダメージ\n" +
       "モードゲージ上昇\n" +
@@ -238,6 +256,7 @@ export const LuciliusActions: Array<action> = [
     }
   },
   {
+    id: 18,
     name: "アキシオン・アポカリプス",
     description: "(ランダム属性)3回ダメージ\n" +
       "モードゲージ上昇\n" +
@@ -254,6 +273,7 @@ export const LuciliusActions: Array<action> = [
     }
   },
   {
+    id: 19,
     name: "強化",
     description: "ルシファーの弱体効果リセット\n" +
       "ルシファーの攻撃力倍化\n",
@@ -265,6 +285,7 @@ export const LuciliusActions: Array<action> = [
     }
   },
   {
+    id: 20,
     name: "パラダイス・ロスト",
     description: "(ランダム属性)全体9,999,999ダメージ\n" +
       "(※ダメージカット可能)",
@@ -275,6 +296,7 @@ export const LuciliusActions: Array<action> = [
     }
   },
   {
+    id: 21,
     name: "パラダイス・ロスト",
     description: "(ランダム属性)全体9,999,999ダメージ\n" +
       "(※ダメージカット可能)",
@@ -285,11 +307,13 @@ export const LuciliusActions: Array<action> = [
     }
   },
   {
+    id: 22,
     description: "全体攻撃(ランダム属性)", name: "通常攻撃", priority: 0, require(bc: battleContext): boolean {
       return !ct(bc.boss.Lucilius) && bc.boss.BlackWing.health > 50;
     }
   },
   {
+    id: 23,
     description: "多段攻撃", name: "通常攻撃", priority: 0, require(bc: battleContext): boolean {
       return !ct(bc.boss.Lucilius) && bc.boss.BlackWing.health <= 50;
     }
