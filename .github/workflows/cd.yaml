@@ -1,5 +1,9 @@
-name: run test
-on: push
+name: run test and deploy
+on:
+  push:
+    branches:
+      - master
+
 jobs:
   build:
     runs-on: ubuntu-18.04
@@ -25,3 +29,12 @@ jobs:
 
       - name: Run tests
         run: yarn test
+
+      - name: Generate
+        run: yarn run gh-pages:generate
+
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./dist
