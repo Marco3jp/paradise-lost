@@ -16,4 +16,6 @@ export interface skill {
   }>,
 
   require(bc: battleContext): boolean,
+
+  afterEffect(bc: battleContext): void,
 }
