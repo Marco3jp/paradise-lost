@@ -82,7 +82,7 @@ export const BlackWingActions: Array<action> = [{
       bc.boss.BlackWing.usedSkill.splice(marsIndex, 1);
     }
   }
-},{
+}, {
   description: "闇属性全体小ダメージ\n" +
     "全体に「生命の果実」を付与(1回/2T)\n" +
     "アンデッド(2T)を付与",
@@ -101,4 +101,5 @@ export const BlackWingActions: Array<action> = [{
     if (marsIndex !== -1) {
       bc.boss.BlackWing.usedSkill.splice(marsIndex, 1);
     }
-  }]
+  }
+}]
