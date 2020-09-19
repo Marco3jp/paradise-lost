@@ -1,6 +1,6 @@
 import {enemies} from "~/src/model/type";
 import {effect} from "~/src/model/effect";
-import {battleContext} from "~/src/model/battleContext";
+import {battleContext, bossStatus} from "~/src/model/battleContext";
 
 export interface skill {
   type: "skill",
@@ -18,5 +18,5 @@ export interface skill {
 
   require(bc: battleContext): boolean,
 
-  afterEffect?: { (bc: battleContext): void }
+  afterEffect?: { (bs: bossStatus): void }
 }

@@ -1,5 +1,5 @@
 import {action} from "~/src/model/type";
-import {battleContext, ct} from "~/src/model/battleContext";
+import {battleContext, bossStatus, ct} from "~/src/model/battleContext";
 
 export const BlackWingActions: Array<action> = [{
   description: "闇属性全体小ダメージ\n" +
@@ -14,12 +14,12 @@ export const BlackWingActions: Array<action> = [{
   require(bc: battleContext): boolean {
     return ct(bc.boss.BlackWing) && bc.boss.BlackWing.health > 50;
   },
-  afterEffect(bc: battleContext) {
-    const theFigIndex = bc.boss.BlackWing.usedSkill.findIndex(skillId => {
+  afterEffect(bs: bossStatus) {
+    const theFigIndex = bs.usedSkill.findIndex(skillId => {
       return skillId === "fig_ct_100"
     });
     if (theFigIndex !== -1) {
-      bc.boss.BlackWing.usedSkill.splice(theFigIndex, 1);
+      bs.usedSkill.splice(theFigIndex, 1);
     }
   }
 }, {
@@ -35,12 +35,12 @@ export const BlackWingActions: Array<action> = [{
   require(bc: battleContext): boolean {
     return ct(bc.boss.BlackWing) && bc.boss.BlackWing.health > 50;
   },
-  afterEffect(bc: battleContext) {
-    const marsIndex = bc.boss.BlackWing.usedSkill.findIndex(skillId => {
+  afterEffect(bs: bossStatus) {
+    const marsIndex = bs.usedSkill.findIndex(skillId => {
       return skillId === "mars_ct_100"
     });
     if (marsIndex !== -1) {
-      bc.boss.BlackWing.usedSkill.splice(marsIndex, 1);
+      bs.usedSkill.splice(marsIndex, 1);
     }
   }
 }, {
@@ -57,12 +57,12 @@ export const BlackWingActions: Array<action> = [{
   require(bc: battleContext): boolean {
     return ct(bc.boss.BlackWing) && bc.boss.BlackWing.health <= 50;
   },
-  afterEffect(bc: battleContext) {
-    const theFigIndex = bc.boss.BlackWing.usedSkill.findIndex(skillId => {
+  afterEffect(bs: bossStatus) {
+    const theFigIndex = bs.usedSkill.findIndex(skillId => {
       return skillId === "fig_ct_50"
     });
     if (theFigIndex !== -1) {
-      bc.boss.BlackWing.usedSkill.splice(theFigIndex, 1);
+      bs.usedSkill.splice(theFigIndex, 1);
     }
   }
 }, {
@@ -78,12 +78,12 @@ export const BlackWingActions: Array<action> = [{
   require(bc: battleContext): boolean {
     return ct(bc.boss.BlackWing) && bc.boss.BlackWing.health <= 50;
   },
-  afterEffect(bc: battleContext) {
-    const marsIndex = bc.boss.BlackWing.usedSkill.findIndex(skillId => {
+  afterEffect(bs: bossStatus) {
+    const marsIndex = bs.usedSkill.findIndex(skillId => {
       return skillId === "mars_ct_50"
     });
     if (marsIndex !== -1) {
-      bc.boss.BlackWing.usedSkill.splice(marsIndex, 1);
+      bs.usedSkill.splice(marsIndex, 1);
     }
   }
 }, {
