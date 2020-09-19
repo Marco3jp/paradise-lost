@@ -25,7 +25,7 @@ export const LuciliusActions: Array<action> = [
     }
   },
   {
-    id: "phosphorus_od_ct_100",
+    id: "phosphorus_ct_100",
     name: 'ポースポロス',
     description: "(ランダム属性)単体特大ダメージ＋強化効果を全て消去\n" +
       "(編成画面で最も攻撃力が高いキャラを狙う)",
@@ -35,7 +35,7 @@ export const LuciliusActions: Array<action> = [
     }
   },
   {
-    id: "axion_ct",
+    id: "iblis_od_ct_100",
     name: "イブリース",
     description: "(ランダム属性)3000ダメージ多段+2万ダメージ×2回\n" +
       "全体に恐怖、衰弱、裂傷(1～3T)を付与",
@@ -60,7 +60,7 @@ export const LuciliusActions: Array<action> = [
     }
   },
   {
-    id: "phosphorus_od_ct_bw0",
+    id: "phosphorus_ct_bw0",
     name: 'ポースポロス',
     description: "(ランダム属性)単体特大ダメージ＋強化効果を全て消去\n" +
       "(現在HPが最も低いキャラを狙う)",
@@ -70,7 +70,7 @@ export const LuciliusActions: Array<action> = [
     }
   },
   {
-    id: "orbital_blackness_ct",
+    id: "orbital_blackness_od_ct",
     name: 'オービタルブラック',
     description: "(ランダム属性)3回ダメージ\n" +
       "全体にハレーション(消去不可、5T)を付与\n" +
