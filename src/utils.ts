@@ -1,7 +1,7 @@
 import {BossStatus} from "~/src/class/BossStatus";
 
 function toggleMarkAction(bossStatus: BossStatus, skillId: string) {
-  const index = bossStatus.usedSkill.findIndex((skillId) => skillId === skillId);
+  const index = bossStatus.usedSkill.findIndex((usedSkillId) => usedSkillId === skillId);
   if (index === -1) {
     bossStatus.usedSkill.push(skillId);
   } else {
