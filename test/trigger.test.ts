@@ -583,3 +583,50 @@ test('パラダイス・ロスト(3%トリガー)', () => {
 
   expect(checkAction(bc.boss.Lucilius, bc)).not.toBeUndefined();
 })
+
+
+test('黙示録の喇叭', () => {
+  const bc = new BattleContext();
+  const expectAction = {
+    name: "黙示録の喇叭", description: "※黒き羽の50%トリガーだが、ルシファーの特殊行動として発動\n" +
+      "※1人目のみ発動\n" +
+      "ルシファー&黒き羽の弱体効果リセット\n" +
+      "ルシファーが初回の特殊技を使用するまで最大CTが固定\n" +
+      "ルシファーの最大CT増加(1→2)",
+  }
+
+  toggleMarkParadiseLost100(bc.boss.Lucilius);
+
+  bc.boss.Lucilius.isCTMax = true;
+  bc.boss.BlackWing.isCTMax = true;
+
+  // CT一致パラロスの優先で発生しない
+  expect(checkAction(bc.boss.Lucilius, bc)).not.toMatchObject(expectAction);
+  expect(checkAction(bc.boss.Lucilius, bc)).not.toBeUndefined();
+
+  bc.boss.Lucilius.isCTMax = false;
+  bc.boss.BlackWing.isCTMax = false;
+  bc.boss.countdown = 0;
+
+  // こっちはカウントダウンが終わった場合
+  expect(checkAction(bc.boss.Lucilius, bc)).not.toMatchObject(expectAction);
+  expect(checkAction(bc.boss.Lucilius, bc)).not.toBeUndefined();
+
+  bc.boss.countdown = 6;
+
+  bc.boss.Lucilius.health = 100;
+  bc.boss.BlackWing.health = 51;
+  expect(checkAction(bc.boss.Lucilius, bc)).not.toMatchObject(expectAction);
+  expect(checkAction(bc.boss.Lucilius, bc)).not.toBeUndefined();
+
+  bc.boss.BlackWing.health = 50;
+  bc.boss.Lucilius.isCTMax = true;
+  // CT技より優先して発動
+  const sevenTrumpets = checkAction(bc.boss.Lucilius, bc)
+  expect(sevenTrumpets).toMatchObject(expectAction);
+  recordAction(bc.boss.Lucilius, sevenTrumpets); // はいっ！
+
+  // 二回は発動しない
+  expect(checkAction(bc.boss.Lucilius, bc)).not.toMatchObject(expectAction);
+  expect(checkAction(bc.boss.Lucilius, bc)).not.toBeUndefined();
+})
