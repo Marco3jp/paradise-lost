@@ -1,6 +1,6 @@
 import 'jest'
 import {BattleContext} from "~/src/class/BattleContext";
-import {usedParadiseLost} from "~/src/model/battleContext";
+import {toggleMarkParadiseLost100} from "~/src/utils";
 import {checkAction, recordAction} from "~/src/checkAction";
 
 test('パラダイス・ロスト', () => {
@@ -40,7 +40,7 @@ test('ポースポロス(95%トリガー)', () => {
     name: "ポースポロス", description: "(ランダム属性)単体特大ダメージ＋強化効果を全て消去\n" +
       "(編成画面で最も攻撃力が高いキャラを狙う)"
   };
-  usedParadiseLost(bc.boss.Lucilius);
+  toggleMarkParadiseLost100(bc.boss.Lucilius);
 
   bc.boss.Lucilius.isCTMax = true;
   bc.boss.BlackWing.isCTMax = true;
@@ -85,7 +85,7 @@ test('アキシオン(85%トリガー)', () => {
       "この攻撃で戦闘不能キャラが出た場合：全体に無属性30000ダメージ"
   }
 
-  usedParadiseLost(bc.boss.Lucilius);
+  toggleMarkParadiseLost100(bc.boss.Lucilius);
 
   bc.boss.Lucilius.isCTMax = true;
   bc.boss.BlackWing.isCTMax = true;
@@ -130,7 +130,7 @@ test('無神論(75%トリガー)', () => {
       "ダメージなし"
   }
 
-  usedParadiseLost(bc.boss.Lucilius);
+  toggleMarkParadiseLost100(bc.boss.Lucilius);
 
   bc.boss.Lucilius.isCTMax = true;
   bc.boss.BlackWing.isCTMax = true;
@@ -175,7 +175,7 @@ test('チャージターンMAX(70%トリガー)', () => {
     name: "チャージターンMAX", description: ""
   }
 
-  usedParadiseLost(bc.boss.Lucilius);
+  toggleMarkParadiseLost100(bc.boss.Lucilius);
 
   bc.boss.Lucilius.isCTMax = true;
   bc.boss.BlackWing.isCTMax = true;
@@ -217,7 +217,7 @@ test('アキシオン(60%トリガー)', () => {
       "この攻撃で戦闘不能キャラが出た場合：全体に無属性30000ダメージ"
   }
 
-  usedParadiseLost(bc.boss.Lucilius);
+  toggleMarkParadiseLost100(bc.boss.Lucilius);
 
   bc.boss.Lucilius.isCTMax = true;
   bc.boss.BlackWing.isCTMax = true;
@@ -262,7 +262,7 @@ test('チャージターンMAX(55%トリガー)', () => {
     name: "チャージターンMAX", description: ""
   }
 
-  usedParadiseLost(bc.boss.Lucilius);
+  toggleMarkParadiseLost100(bc.boss.Lucilius);
 
   bc.boss.Lucilius.isCTMax = true;
   bc.boss.BlackWing.isCTMax = true;
@@ -306,7 +306,7 @@ test('ゴフェル・アーク(25%トリガー)', () => {
       "※種族被りがない場合はダメージなし\n"
   }
 
-  usedParadiseLost(bc.boss.Lucilius);
+  toggleMarkParadiseLost100(bc.boss.Lucilius);
 
   bc.boss.Lucilius.isCTMax = true;
   bc.boss.BlackWing.isCTMax = true;
@@ -356,7 +356,7 @@ test('アキシオン・アポカリプス(20%トリガー)', () => {
       "※15%以下で特殊行動無し"
   }
 
-  usedParadiseLost(bc.boss.Lucilius);
+  toggleMarkParadiseLost100(bc.boss.Lucilius);
 
   bc.boss.Lucilius.isCTMax = true;
   bc.boss.BlackWing.isCTMax = true;
@@ -415,7 +415,7 @@ test('アキシオン・アポカリプス(15%トリガー)', () => {
       "※10%以下で特殊行動無し"
   }
 
-  usedParadiseLost(bc.boss.Lucilius);
+  toggleMarkParadiseLost100(bc.boss.Lucilius);
 
   bc.boss.Lucilius.isCTMax = true;
   bc.boss.BlackWing.isCTMax = true;
@@ -468,7 +468,7 @@ test('パラダイス・ロスト(10%トリガー)', () => {
       "(※ダメージカット可能)"
   }
 
-  usedParadiseLost(bc.boss.Lucilius);
+  toggleMarkParadiseLost100(bc.boss.Lucilius);
 
   bc.boss.Lucilius.isCTMax = true;
   bc.boss.BlackWing.isCTMax = true;
@@ -520,7 +520,7 @@ test('パラダイス・ロスト(3%トリガー)', () => {
       "(※ダメージカット可能)"
   }
 
-  usedParadiseLost(bc.boss.Lucilius);
+  toggleMarkParadiseLost100(bc.boss.Lucilius);
 
   bc.boss.Lucilius.isCTMax = true;
   bc.boss.BlackWing.isCTMax = true;

@@ -25,7 +25,3 @@ export function ct(bs: bossStatus): boolean {
 export function isSkill(action: action): boolean {
   return Object.prototype.hasOwnProperty.call(action, 'isOnce');
 }
-
-export function usedParadiseLost(luciliusBossStatus: BossStatus) {
-  luciliusBossStatus.usedSkill.push(0);
-}
