@@ -1,5 +1,4 @@
 import {battleContext, bossStatus, isSkill} from "~/src/model/battleContext";
-import {skill} from "~/src/model/skill";
 import {action} from "~/src/model/type";
 
 
@@ -26,7 +25,10 @@ export function recordAction(bs: bossStatus, action?: action | string) {
   if (typeof action === "undefined") return
   if (typeof action === "string") {
     bs.usedSkill.push(action);
-  } else if (isSkill(action) && (action as skill).isOnce) {
+  } else if (isSkill(action) && action.isOnce) {
     bs.usedSkill.push(action.id);
+    if (typeof action.afterEffect !== "undefined") {
+      action.afterEffect(bs)
+    }
   }
 }
