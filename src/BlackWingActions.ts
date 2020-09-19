@@ -6,7 +6,7 @@ export const BlackWingActions: Array<action> = [{
     "全体に「禁断の果実」を付与(1回/2T)\n" +
     "ルシファーの「福音の黒翼」を消去",
   effects: undefined,
-  id: 0,
+  id: "mars_ct_100",
   isOnce: true,
   name: "マルス",
   priority: 50,
@@ -15,7 +15,7 @@ export const BlackWingActions: Array<action> = [{
   },
   afterEffect(bc: battleContext) {
     const theFigIndex = bc.boss.BlackWing.usedSkill.findIndex(skillId => {
-      return skillId === 1
+      return skillId === "fig_ct_100"
     });
     if (theFigIndex !== -1) {
       bc.boss.BlackWing.usedSkill.splice(theFigIndex, 1);
@@ -26,7 +26,7 @@ export const BlackWingActions: Array<action> = [{
     "全体に「生命の果実」を付与(1回/2T)\n" +
     "ルシファーに「福音の黒翼」を付与",
   effects: undefined,
-  id: 1,
+  id: "fig_ct_100",
   isOnce: true,
   name: "フィークス",
   priority: 25,
@@ -35,7 +35,7 @@ export const BlackWingActions: Array<action> = [{
   },
   afterEffect(bc: battleContext) {
     const marsIndex = bc.boss.BlackWing.usedSkill.findIndex(skillId => {
-      return skillId === 0
+      return skillId === "mars_ct_100"
     });
     if (marsIndex !== -1) {
       bc.boss.BlackWing.usedSkill.splice(marsIndex, 1);
@@ -47,7 +47,7 @@ export const BlackWingActions: Array<action> = [{
     "ルシファーの「福音の黒翼」を消去\n" +
     "攻撃DOWN(2T)を付与",
   effects: undefined,
-  id: 2,
+  id: "mars_ct_50",
   isOnce: true,
   name: "マルス",
   priority: 50,
@@ -56,7 +56,7 @@ export const BlackWingActions: Array<action> = [{
   },
   afterEffect(bc: battleContext) {
     const theFigIndex = bc.boss.BlackWing.usedSkill.findIndex(skillId => {
-      return skillId === 3
+      return skillId === "fig_ct_50"
     });
     if (theFigIndex !== -1) {
       bc.boss.BlackWing.usedSkill.splice(theFigIndex, 1);
@@ -67,7 +67,7 @@ export const BlackWingActions: Array<action> = [{
     "全体に「生命の果実」を付与(1回/2T)\n" +
     "アンデッド(2T)を付与",
   effects: undefined,
-  id: 3,
+  id: "fig_ct_50",
   isOnce: true,
   name: "フィークス",
   priority: 25,
@@ -76,7 +76,7 @@ export const BlackWingActions: Array<action> = [{
   },
   afterEffect(bc: battleContext) {
     const marsIndex = bc.boss.BlackWing.usedSkill.findIndex(skillId => {
-      return skillId === 2
+      return skillId === "mars_ct_50"
     });
     if (marsIndex !== -1) {
       bc.boss.BlackWing.usedSkill.splice(marsIndex, 1);
@@ -87,7 +87,7 @@ export const BlackWingActions: Array<action> = [{
     "全体に「生命の果実」を付与(1回/2T)\n" +
     "アンデッド(2T)を付与",
   effects: undefined,
-  id: 4,
+  id: "sephiroth_70",
   isOnce: true,
   name: "フィークス",
   priority: 25,

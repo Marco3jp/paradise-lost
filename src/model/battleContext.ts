@@ -6,7 +6,7 @@ export interface bossStatus {
   health: number // percent
   isCTMax: boolean
   isOverDrive: boolean
-  usedSkill: Array<number>
+  usedSkill: Array<string>
   actions: Array<action>
 }
 

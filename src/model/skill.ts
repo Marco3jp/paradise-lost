@@ -3,7 +3,7 @@ import {effect} from "~/src/model/effect";
 import {battleContext} from "~/src/model/battleContext";
 
 export interface skill {
-  id: number,
+  id: string,
   name: string,
   description: string,
   priority: number,

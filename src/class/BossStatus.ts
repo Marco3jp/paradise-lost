@@ -7,7 +7,7 @@ export class BossStatus implements bossStatus {
   health: number;
   isCTMax: boolean;
   isOverDrive: boolean;
-  usedSkill: Array<number>;
+  usedSkill: Array<string>;
 
   constructor(name: string, actions: Array<action>) {
     this.name = name;
