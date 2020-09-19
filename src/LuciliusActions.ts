@@ -320,5 +320,20 @@ export const LuciliusActions: Array<action> = [
     description: "多段攻撃", name: "通常攻撃", priority: 0, require(bc: battleContext): boolean {
       return !ct(bc.boss.Lucilius) && bc.boss.BlackWing.health <= 50;
     }
+  },
+  {
+    description: "※黒き羽の50%トリガーだが、ルシファーの特殊行動として発動\n" +
+      "※1人目のみ発動\n" +
+      "ルシファー&黒き羽の弱体効果リセット\n" +
+      "ルシファーが初回の特殊技を使用するまで最大CTが固定\n" +
+      "ルシファーの最大CT増加(1→2)",
+    effects: undefined,
+    id: "seven_trumpets",
+    isOnce: true,
+    name: "黙示録の喇叭",
+    priority: 50,
+    require(bc: battleContext): boolean {
+      return bc.boss.BlackWing.health <= 50;
+    },
   }
 ]
