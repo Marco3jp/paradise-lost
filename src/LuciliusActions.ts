@@ -310,13 +310,13 @@ export const LuciliusActions: Array<action> = [
     }
   },
   {
-    id: 22,
+    id: "normal_attack_100",
     description: "全体攻撃(ランダム属性)", name: "通常攻撃", priority: 0, require(bc: battleContext): boolean {
       return !ct(bc.boss.Lucilius) && bc.boss.BlackWing.health > 50;
     }
   },
   {
-    id: 23,
+    id: "normal_attack_50",
     description: "多段攻撃", name: "通常攻撃", priority: 0, require(bc: battleContext): boolean {
       return !ct(bc.boss.Lucilius) && bc.boss.BlackWing.health <= 50;
     }
