@@ -1,11 +1,12 @@
 import 'jest'
 import {checkAction} from "~/src/checkAction";
 import {BattleContext} from "~/src/class/BattleContext";
-import {toggleMarkParadiseLost100} from "~/src/utils";
+import {toggleMarkParadiseLost100, toggleMarkSevenTrumpets} from "~/src/utils";
 
 test('全体攻撃', () => {
   const bc = new BattleContext();
   toggleMarkParadiseLost100(bc.boss.Lucilius);
+  toggleMarkSevenTrumpets(bc.boss.Lucilius);
 
   bc.boss.Lucilius.isCTMax = false;
   bc.boss.BlackWing.health = 100;
@@ -20,6 +21,7 @@ test('全体攻撃', () => {
 test('多段攻撃', () => {
   const bc = new BattleContext();
   toggleMarkParadiseLost100(bc.boss.Lucilius);
+  toggleMarkSevenTrumpets(bc.boss.Lucilius);
 
   bc.boss.Lucilius.isCTMax = false;
   bc.boss.BlackWing.health = 51;

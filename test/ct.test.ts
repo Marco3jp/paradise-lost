@@ -1,11 +1,12 @@
 import 'jest'
 import {BattleContext} from "~/src/class/BattleContext";
-import {toggleMarkParadiseLost100} from "~/src/utils";
+import {toggleMarkParadiseLost100, toggleMarkSevenTrumpets} from "~/src/utils";
 import {checkAction} from "~/src/checkAction";
 
 test('ポースポロス', () => {
   const bc = new BattleContext();
   toggleMarkParadiseLost100(bc.boss.Lucilius);
+  toggleMarkSevenTrumpets(bc.boss.Lucilius);
 
   bc.boss.Lucilius.isCTMax = true;
   bc.boss.Lucilius.isOverDrive = false;
@@ -28,6 +29,7 @@ test('ポースポロス', () => {
 test('イブリース', () => {
   const bc = new BattleContext();
   toggleMarkParadiseLost100(bc.boss.Lucilius);
+  toggleMarkSevenTrumpets(bc.boss.Lucilius);
 
   bc.boss.Lucilius.isCTMax = true;
   bc.boss.Lucilius.isOverDrive = true;
@@ -50,6 +52,7 @@ test('イブリース', () => {
 test('アキシオン・アポカリプス', () => {
   const bc = new BattleContext();
   toggleMarkParadiseLost100(bc.boss.Lucilius);
+  toggleMarkSevenTrumpets(bc.boss.Lucilius);
 
   bc.boss.Lucilius.isCTMax = true;
 
@@ -107,6 +110,7 @@ test('アキシオン・アポカリプス', () => {
 test('ポースポロス(羽撃破後)', () => {
   const bc = new BattleContext();
   toggleMarkParadiseLost100(bc.boss.Lucilius);
+  toggleMarkSevenTrumpets(bc.boss.Lucilius);
 
   bc.boss.Lucilius.isCTMax = true;
   bc.boss.Lucilius.isOverDrive = false;
@@ -125,6 +129,7 @@ test('ポースポロス(羽撃破後)', () => {
 test('オービタルブラック', () => {
   const bc = new BattleContext();
   toggleMarkParadiseLost100(bc.boss.Lucilius);
+  toggleMarkSevenTrumpets(bc.boss.Lucilius);
 
   bc.boss.Lucilius.isCTMax = true;
   bc.boss.Lucilius.isOverDrive = true;
@@ -153,6 +158,7 @@ test('オービタルブラック', () => {
 test('パラダイス・ロスト(CT一致)', () => {
   const bc = new BattleContext();
   toggleMarkParadiseLost100(bc.boss.Lucilius);
+  toggleMarkSevenTrumpets(bc.boss.Lucilius);
 
   bc.boss.Lucilius.isCTMax = true;
   bc.boss.BlackWing.isCTMax = true;
@@ -187,6 +193,7 @@ test('パラダイス・ロスト(CT一致)', () => {
 test('ジ・エンド', () => {
   const bc = new BattleContext();
   toggleMarkParadiseLost100(bc.boss.Lucilius);
+  toggleMarkSevenTrumpets(bc.boss.Lucilius);
 
   bc.boss.countdown = 0;
 

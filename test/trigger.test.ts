@@ -1,6 +1,11 @@
 import 'jest'
 import {BattleContext} from "~/src/class/BattleContext";
-import {toggleMarkParadiseLost100} from "~/src/utils";
+import {
+  toggleMarkChargeMax55,
+  toggleMarkChargeMax70,
+  toggleMarkParadiseLost100,
+  toggleMarkSevenTrumpets
+} from "~/src/utils";
 import {checkAction, recordAction} from "~/src/checkAction";
 
 test('パラダイス・ロスト', () => {
@@ -154,6 +159,7 @@ test('無神論(75%トリガー)', () => {
 
   bc.boss.BlackWing.health = 0;
   bc.boss.Lucilius.health = 75;
+  toggleMarkSevenTrumpets(bc.boss.Lucilius); // 黙示録の喇叭キャンセル
   expect(checkAction(bc.boss.Lucilius, bc)).not.toMatchObject(expectAction);
 
   bc.boss.BlackWing.health = 1;
@@ -194,6 +200,7 @@ test('チャージターンMAX(70%トリガー)', () => {
 
   bc.boss.countdown = 6;
   bc.boss.BlackWing.health = 0; // 無神論キャンセル
+  toggleMarkSevenTrumpets(bc.boss.Lucilius); // 黙示録の喇叭キャンセル
 
   bc.boss.Lucilius.health = 71;
   expect(checkAction(bc.boss.Lucilius, bc)).not.toMatchObject(expectAction);
@@ -236,7 +243,8 @@ test('アキシオン(60%トリガー)', () => {
 
   bc.boss.countdown = 6;
   bc.boss.BlackWing.health = 0; // 無神論キャンセル
-  recordAction(bc.boss.Lucilius, 12) // チャージターンMAX(70%トリガー)キャンセル
+  toggleMarkChargeMax70(bc.boss.Lucilius) // チャージターンMAX(70%トリガー)キャンセル
+  toggleMarkSevenTrumpets(bc.boss.Lucilius); // 黙示録の喇叭キャンセル
 
   bc.boss.Lucilius.health = 61;
   expect(checkAction(bc.boss.Lucilius, bc)).not.toMatchObject(expectAction);
@@ -281,7 +289,8 @@ test('チャージターンMAX(55%トリガー)', () => {
 
   bc.boss.countdown = 6;
   bc.boss.BlackWing.health = 0; // 無神論キャンセル
-  recordAction(bc.boss.Lucilius, 12) // チャージターンMAX(70%トリガー)キャンセル
+  toggleMarkChargeMax70(bc.boss.Lucilius) // チャージターンMAX(70%トリガー)キャンセル
+  toggleMarkSevenTrumpets(bc.boss.Lucilius); // 黙示録の喇叭キャンセル
 
   bc.boss.Lucilius.health = 56;
   expect(checkAction(bc.boss.Lucilius, bc)).not.toMatchObject(expectAction);
@@ -325,8 +334,9 @@ test('ゴフェル・アーク(25%トリガー)', () => {
 
   bc.boss.countdown = 6;
   bc.boss.BlackWing.health = 0; // 無神論キャンセル
-  recordAction(bc.boss.Lucilius, 12) // チャージターンMAX(70%トリガー)キャンセル
-  recordAction(bc.boss.Lucilius, 14) // チャージターンMAX(55%トリガー)キャンセル
+  toggleMarkChargeMax70(bc.boss.Lucilius) // チャージターンMAX(70%トリガー)キャンセル
+  toggleMarkSevenTrumpets(bc.boss.Lucilius); // 黙示録の喇叭キャンセル
+  toggleMarkChargeMax55(bc.boss.Lucilius) // チャージターンMAX(55%トリガー)キャンセル
 
   bc.boss.Lucilius.health = 26;
   expect(checkAction(bc.boss.Lucilius, bc)).not.toMatchObject(expectAction);
@@ -375,8 +385,9 @@ test('アキシオン・アポカリプス(20%トリガー)', () => {
 
   bc.boss.countdown = 6;
   bc.boss.BlackWing.health = 0; // 無神論キャンセル
-  recordAction(bc.boss.Lucilius, 12) // チャージターンMAX(70%トリガー)キャンセル
-  recordAction(bc.boss.Lucilius, 14) // チャージターンMAX(55%トリガー)キャンセル
+  toggleMarkChargeMax70(bc.boss.Lucilius) // チャージターンMAX(70%トリガー)キャンセル
+  toggleMarkSevenTrumpets(bc.boss.Lucilius); // 黙示録の喇叭キャンセル
+  toggleMarkChargeMax55(bc.boss.Lucilius) // チャージターンMAX(55%トリガー)キャンセル
 
   bc.boss.Lucilius.health = 20;
   // ゴッフェルアークが優先的に発動する
@@ -434,8 +445,9 @@ test('アキシオン・アポカリプス(15%トリガー)', () => {
 
   bc.boss.countdown = 6;
   bc.boss.BlackWing.health = 0; // 無神論キャンセル
-  recordAction(bc.boss.Lucilius, 12) // チャージターンMAX(70%トリガー)キャンセル
-  recordAction(bc.boss.Lucilius, 14) // チャージターンMAX(55%トリガー)キャンセル
+  toggleMarkChargeMax70(bc.boss.Lucilius) // チャージターンMAX(70%トリガー)キャンセル
+  toggleMarkSevenTrumpets(bc.boss.Lucilius); // 黙示録の喇叭キャンセル
+  toggleMarkChargeMax55(bc.boss.Lucilius) // チャージターンMAX(55%トリガー)キャンセル
 
   bc.boss.Lucilius.health = 15;
   // ゴッフェルアークが優先的に発動する
@@ -487,8 +499,9 @@ test('パラダイス・ロスト(10%トリガー)', () => {
 
   bc.boss.countdown = 6;
   bc.boss.BlackWing.health = 0; // 無神論キャンセル
-  recordAction(bc.boss.Lucilius, 12) // チャージターンMAX(70%トリガー)キャンセル
-  recordAction(bc.boss.Lucilius, 14) // チャージターンMAX(55%トリガー)キャンセル
+  toggleMarkChargeMax70(bc.boss.Lucilius) // チャージターンMAX(70%トリガー)キャンセル
+  toggleMarkSevenTrumpets(bc.boss.Lucilius); // 黙示録の喇叭キャンセル
+  toggleMarkChargeMax55(bc.boss.Lucilius) // チャージターンMAX(55%トリガー)キャンセル
 
   bc.boss.Lucilius.health = 10;
   // ゴッフェルアークが優先的に発動する
@@ -539,8 +552,9 @@ test('パラダイス・ロスト(3%トリガー)', () => {
 
   bc.boss.countdown = 6;
   bc.boss.BlackWing.health = 0; // 無神論キャンセル
-  recordAction(bc.boss.Lucilius, 12) // チャージターンMAX(70%トリガー)キャンセル
-  recordAction(bc.boss.Lucilius, 14) // チャージターンMAX(55%トリガー)キャンセル
+  toggleMarkChargeMax70(bc.boss.Lucilius) // チャージターンMAX(70%トリガー)キャンセル
+  toggleMarkSevenTrumpets(bc.boss.Lucilius); // 黙示録の喇叭キャンセル
+  toggleMarkChargeMax55(bc.boss.Lucilius) // チャージターンMAX(55%トリガー)キャンセル
 
   bc.boss.Lucilius.health = 3;
   // ゴッフェルアークが優先的に発動する
