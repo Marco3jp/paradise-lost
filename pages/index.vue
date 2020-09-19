@@ -86,7 +86,7 @@
         }
       },
       isOnce: function (): boolean {
-        return typeof this.expectedAction !== "undefined" && isSkill(this.expectedAction) && (this.expectedAction as skill).isOnce
+        return typeof this.expectedAction !== "undefined" && isSkill(this.expectedAction) && typeof this.expectedAction.isOnce !== "undefined" && this.expectedAction.isOnce
       }
     }
   })
