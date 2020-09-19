@@ -102,4 +102,13 @@ export const BlackWingActions: Array<action> = [{
   require(bc: battleContext): boolean {
     return bc.boss.BlackWing.health <= 70;
   },
+}, {
+  description: "黒き羽は通常攻撃を行わない",
+  id: "no_action",
+  name: "行動なし",
+  type: "attack",
+  priority: 0,
+  require(bc: battleContext): boolean {
+    return !ct(bc.boss.BlackWing)
+  },
 }]
