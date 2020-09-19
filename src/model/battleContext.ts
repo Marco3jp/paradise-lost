@@ -1,5 +1,6 @@
 import {action} from "~/src/model/type";
 import {BossStatus} from "~/src/class/BossStatus";
+import {skill} from "~/src/model/skill";
 
 export interface bossStatus {
   name: string
@@ -22,6 +23,6 @@ export function ct(bs: bossStatus): boolean {
   return bs.isCTMax
 }
 
-export function isSkill(action: action): boolean {
-  return Object.prototype.hasOwnProperty.call(action, 'isOnce');
+export function isSkill(action: action): action is skill {
+  return action.type === "skill";
 }

@@ -8,6 +8,7 @@ export const BlackWingActions: Array<action> = [{
   effects: undefined,
   id: "mars_ct_100",
   isOnce: true,
+  type: "skill",
   name: "マルス",
   priority: 50,
   require(bc: battleContext): boolean {
@@ -29,6 +30,7 @@ export const BlackWingActions: Array<action> = [{
   id: "fig_ct_100",
   isOnce: true,
   name: "フィークス",
+  type: "skill",
   priority: 25,
   require(bc: battleContext): boolean {
     return ct(bc.boss.BlackWing) && bc.boss.BlackWing.health > 50;
@@ -50,6 +52,7 @@ export const BlackWingActions: Array<action> = [{
   id: "mars_ct_50",
   isOnce: true,
   name: "マルス",
+  type: "skill",
   priority: 50,
   require(bc: battleContext): boolean {
     return ct(bc.boss.BlackWing) && bc.boss.BlackWing.health <= 50;
@@ -70,6 +73,7 @@ export const BlackWingActions: Array<action> = [{
   id: "fig_ct_50",
   isOnce: true,
   name: "フィークス",
+  type: "skill",
   priority: 25,
   require(bc: battleContext): boolean {
     return ct(bc.boss.BlackWing) && bc.boss.BlackWing.health <= 50;
@@ -93,6 +97,7 @@ export const BlackWingActions: Array<action> = [{
   id: "sephiroth_70",
   isOnce: true,
   name: "セフィロト",
+  type: "skill",
   priority: 50,
   require(bc: battleContext): boolean {
     return bc.boss.BlackWing.health <= 70;

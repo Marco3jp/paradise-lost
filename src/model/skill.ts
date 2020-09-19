@@ -3,19 +3,20 @@ import {effect} from "~/src/model/effect";
 import {battleContext} from "~/src/model/battleContext";
 
 export interface skill {
+  type: "skill",
   id: string,
   name: string,
   description: string,
   priority: number,
-  isOnce: boolean, // Arrayからpopさせることでスキル自体消す？
-  isAuto: boolean, // 勝手にステータス上がったりするやつ
+  isOnce?: boolean, // Arrayからpopさせることでスキル自体消す？
+  isAuto?: boolean, // 勝手にステータス上がったりするやつ
 
-  effects: Array<{
+  effects?: Array<{
     target: enemies | "player" | "field",
     effect: effect
   }>,
 
   require(bc: battleContext): boolean,
 
-  afterEffect(bc: battleContext): void,
+  afterEffect?: { (bc: battleContext): void }
 }
