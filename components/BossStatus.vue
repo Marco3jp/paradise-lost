@@ -1,9 +1,9 @@
 <template>
   <div class="flex flex-column justify-between boss-status">
-    <div><span>{{boss.name}}</span></div>
-    <div :class="{od: boss.isOverDrive}"><span>OD</span></div>
-    <div :class="{ct: boss.isCTMax}"><span>CT</span></div>
+    <div class="boss-name"><span>{{boss.name}}</span></div>
     <div><span>{{boss.health}}%</span></div>
+    <div @click="toggleOD" :class="{od: boss.isOverDrive}"><span>OD</span></div>
+    <div @click="toggleCT" :class="{ct: boss.isCTMax}"><span>CT</span></div>
   </div>
 </template>
 
@@ -12,14 +12,21 @@
 
   export default Vue.extend({
     name: "BossStatus",
-    props: ['boss']
+    props: ['boss'],
+    methods: {
+      toggleOD() {
+        this.boss.isOverDrive = !this.boss.isOverDrive;
+      },
+      toggleCT() {
+        this.boss.isCTMax = !this.boss.isCTMax;
+      }
+    }
   })
 </script>
 
 <style scoped lang="scss">
   .boss-status {
     text-align: center;
-    border-bottom: 1px solid black;
 
     & > div {
       flex-grow: 1;

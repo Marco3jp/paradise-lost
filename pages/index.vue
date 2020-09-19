@@ -1,14 +1,14 @@
 <template>
   <div class="container flex flex-column">
+    <div class="action">
+      <boss-action :action="expectedAction"></boss-action>
+    </div>
     <div class="flex justify-between status">
       <boss-status :boss="battleContext.boss.BlackWing"></boss-status>
       <boss-status :boss="battleContext.boss.Lucilius"></boss-status>
     </div>
-    <div class="action">
-      <boss-action :action="expectedAction"></boss-action>
-    </div>
     <div class="status-controller">
-      <boss-status-controller :boss="currentBoss" @toggle-od="onToggleOD" @toggle-ct="onToggleCT" @increase="onIncrease"
+      <boss-status-controller :boss="currentBoss" @increase="onIncrease"
                               @decrease="onDecrease"></boss-status-controller>
     </div>
     <div class="controller">
@@ -61,12 +61,6 @@
         recordAction(this.currentBoss, this.expectedAction);
         this.checkActionSafety = false;
       },
-      onToggleOD() {
-        this.currentBoss.isOverDrive = !this.currentBoss.isOverDrive;
-      },
-      onToggleCT() {
-        this.currentBoss.isCTMax = !this.currentBoss.isCTMax;
-      },
       onIncrease(value: number) {
         this.currentBoss.health = this.currentBoss.health + value >= 100 ? 100 : this.currentBoss.health + value;
       },
@@ -97,6 +91,11 @@
     height: 95vh;
     overflow: hidden;
 
+    .action {
+      height: 35%;
+      border-bottom: 1px solid black;
+    }
+
     .status {
       height: 40%;
 
@@ -105,12 +104,8 @@
       }
     }
 
-    .action {
-      height: 30%;
-    }
-
     .status-controller {
-      height: 20%;
+      height: 15%;
     }
 
     .controller {

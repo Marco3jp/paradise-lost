@@ -1,9 +1,5 @@
 <template>
   <div class="flex flex-column justify-between boss-status-controller">
-    <div class="flex justify-around od-ct-controller">
-      <div @click="$emit('toggle-od')" :class="{od: boss.isOverDrive}">OD</div>
-      <div @click="$emit('toggle-ct')" :class="{ct: boss.isCTMax}">CT</div>
-    </div>
     <div class="flex justify-between health-controller">
       <div @click="$emit('decrease', 5)">
         <svg class="icon" viewBox="0 0 24 24">
@@ -44,16 +40,8 @@
   .boss-status-controller {
     height: 100%;
 
-    .od-ct-controller {
-      height: 40%;
-
-      .od, .ct {
-        color: red;
-      }
-    }
-
     .health-controller {
-      height: 60%;
+      height: 100%;
       text-align: center;
 
       .icon {
