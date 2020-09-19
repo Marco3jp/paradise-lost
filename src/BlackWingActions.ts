@@ -83,23 +83,18 @@ export const BlackWingActions: Array<action> = [{
     }
   }
 }, {
-  description: "闇属性全体小ダメージ\n" +
-    "全体に「生命の果実」を付与(1回/2T)\n" +
-    "アンデッド(2T)を付与",
+  description: "※1人目のみ発動\n" +
+    "(ルシファー行動後、黒き羽の特殊行動)\n" +
+    "ダメージなし\n" +
+    "ルシファー&黒き羽の弱体効果リセット\n" +
+    "モードゲージ上昇\n" +
+    "ルシファーに「終末へのカウントダウン」を付与",
   effects: undefined,
   id: "sephiroth_70",
   isOnce: true,
-  name: "フィークス",
-  priority: 25,
+  name: "セフィロト",
+  priority: 50,
   require(bc: battleContext): boolean {
-    return ct(bc.boss.BlackWing) && bc.boss.BlackWing.health <= 50;
+    return bc.boss.BlackWing.health <= 70;
   },
-  afterEffect(bc: battleContext) {
-    const marsIndex = bc.boss.BlackWing.usedSkill.findIndex(skillId => {
-      return skillId === 2
-    });
-    if (marsIndex !== -1) {
-      bc.boss.BlackWing.usedSkill.splice(marsIndex, 1);
-    }
-  }
 }]
